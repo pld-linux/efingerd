@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://melkor.dnp.fmph.uniba.sk/~garabik/efingerd/%{name}_%{version}.tar.gz
+# Source0-md5:	9ed962d02c7716c747fd29b4fabbd06b
 Source1:	%{name}.inetd
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://melkor.dnp.fmph.uniba.sk/~garabik/efingerd.html
