@@ -10,8 +10,8 @@ Source0:	http://melkor.dnp.fmph.uniba.sk/~garabik/efingerd/%{name}_%{version}.ta
 Source1:	%{name}.inetd
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://melkor.dnp.fmph.uniba.sk/~garabik/efingerd.html
+PreReq:		rc-inetd >= 0.8.1
 Requires:	inetdaemon
-Prereq:		rc-inetd >= 0.8.1
 Provides:	fingerd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	libident-devel
@@ -37,15 +37,20 @@ na zapytania finger - pokazuj±c wynik zewnêtrznych programów.
 %patch0 -p1
 
 %build
-%{__make} CFLAGS="%{rpmcflags}"
+%{__make} \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd
 
-%{__make} install install-doc DESTDIR=$RPM_BUILD_ROOT
+%{__make} install install-doc \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/fingerd
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %post
 if [ -f /var/lock/subsys/rc-inetd ]; then
@@ -58,9 +63,6 @@ fi
 if [ -f /var/lock/subsys/rc-inetd ]; then
 	/etc/rc.d/init.d/rc-inetd reload
 fi
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
