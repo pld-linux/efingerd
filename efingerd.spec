@@ -2,13 +2,14 @@ Summary:	Nice finger daemon
 Summary(pl):	Sympatyczny serwer finger
 Name:		efingerd
 Version:	1.6.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://melkor.dnp.fmph.uniba.sk/~garabik/efingerd/%{name}_%{version}.tar.gz
 # Source0-md5:	9ed962d02c7716c747fd29b4fabbd06b
 Source1:	%{name}.inetd
 Patch0:		%{name}-DESTDIR.patch
+Patch1:		%{name}-fortune_path.patch
 URL:		http://melkor.dnp.fmph.uniba.sk/~garabik/efingerd.html
 PreReq:		rc-inetd >= 0.8.1
 Requires:	inetdaemon
@@ -35,6 +36,7 @@ na zapytania finger - pokazuj±c wynik zewnêtrznych programów.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__make} \
