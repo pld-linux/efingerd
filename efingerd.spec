@@ -38,7 +38,7 @@ jest wy¶wietlane oraz komu i jest extremalnie configurowalny.
 %patch0 -p1
 
 %build
-%{__make} CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}"
+%{__make} CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
