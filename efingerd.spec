@@ -38,14 +38,14 @@ jest wy¶wietlane oraz komu i jest extremalnie configurowalny.
 %patch0 -p1
 
 %build
-%{__make} CFLAGS="$RPM_OPT_FLAGS"
+%{__make} CFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd
 
 %{__make} install install-doc DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/fingerd
 
 gzip -9nf README CHANGES examples-{unusual,win95,standard}/*
@@ -67,8 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {README,CHANGES}.gz
-%doc %dir examples-{unusual,win95,standard}
+%doc *.gz examples-{unusual,win95,standard}
 %attr(755,root,root) %{_sbindir}/*
 %attr(640,root,root) /etc/sysconfig/rc-inetd/fingerd
 %dir %{_sysconfdir}/efingerd
