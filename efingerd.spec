@@ -2,7 +2,7 @@ Summary:	Nice finger daemon
 Summary(pl):	Sympatyczny serwer finger
 Name:		efingerd
 Version:	1.6.1
-Release:	3
+Release:	4
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://melkor.dnp.fmph.uniba.sk/~garabik/efingerd/%{name}_%{version}.tar.gz
@@ -26,10 +26,10 @@ their output. This gives you complete control over what to display and
 to who, and an extreme configurability.
 
 %description -l pl
-Jeszcze jeden fingerd dla unixa umo¿liwiaj±cy dok³adne sterowanie
-wyj¶ciem. efingerd jest demonem finger który mo¿e uruchamiaæ programy
-i wy¶wietlaæ ich wyj¶cie. Daje tobie kompletn± kontrolê nad tym co
-jest wy¶wietlane oraz komu i jest extremalnie configurowalny.
+Efingerd jest kolejnym uniksowym demonem finger, który
+poprzez swoje mo¿liwo¶ci konfiguracji pozwala na pe³n±
+kontrolê tego, komu i w jaki sposób s± prezentowane odpowiedzi
+na zapytania finger - pokazuj±c wynik zewnêtrznych programów.
 
 %prep
 %setup -q
@@ -45,8 +45,6 @@ install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd
 %{__make} install install-doc DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/fingerd
-
-gzip -9nf README CHANGES examples-{unusual,win95,standard}/*
 
 %post
 if [ -f /var/lock/subsys/rc-inetd ]; then
@@ -65,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz examples-{unusual,win95,standard}
+%doc README CHANGES examples-{unusual,win95,standard}
 %attr(755,root,root) %{_sbindir}/*
 %attr(640,root,root) /etc/sysconfig/rc-inetd/fingerd
 %dir %{_sysconfdir}/efingerd
