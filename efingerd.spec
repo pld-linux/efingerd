@@ -1,7 +1,7 @@
 Summary:	Nice finger daemon
 Summary(pl):	Sympatyczny serwer finger
 Name:		efingerd
-Version:	1.4.2
+Version:	1.6
 Release:	1
 License:	GPL
 Group:		Networking/Daemons
