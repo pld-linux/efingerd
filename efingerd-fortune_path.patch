@@ -1,0 +1,24 @@
+diff -urN efingerd-1.6.2.orig/examples-standard/nouser efingerd-1.6.2/examples-standard/nouser
+--- efingerd-1.6.2.orig/examples-standard/nouser	2001-10-29 09:50:28.000000000 +0100
++++ efingerd-1.6.2/examples-standard/nouser	2004-04-03 13:33:53.102916072 +0200
+@@ -22,7 +22,7 @@
+ fi
+ 
+ if [ "$3" = "fortune" ]; then
+-  /usr/games/fortune
++  /usr/bin/fortune
+   exit 0
+ fi
+ 
+diff -urN efingerd-1.6.2.orig/examples-unusual/nouser efingerd-1.6.2/examples-unusual/nouser
+--- efingerd-1.6.2.orig/examples-unusual/nouser	2001-03-14 09:54:52.000000000 +0100
++++ efingerd-1.6.2/examples-unusual/nouser	2004-04-03 13:33:45.788028104 +0200
+@@ -33,7 +33,7 @@
+ fi
+ 
+ if [ $3 = 'fortune' ]; then
+-  /usr/games/fortune
++  /usr/bin/fortune
+   exit 0
+ fi
+ 
