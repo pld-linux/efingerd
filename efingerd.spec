@@ -2,7 +2,7 @@ Summary:	Nice finger daemon
 Summary(pl):	Sympatyczny serwer finger
 Name:		efingerd
 Version:	1.6.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://melkor.dnp.fmph.uniba.sk/~garabik/efingerd/%{name}_%{version}.tar.gz
@@ -69,5 +69,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/*
 %attr(640,root,root) /etc/sysconfig/rc-inetd/fingerd
 %dir %{_sysconfdir}/efingerd
-%attr(755,root,root) %{_sysconfdir}/efingerd/*
+%attr(755,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/efingerd/*
 %{_mandir}/man8/*
