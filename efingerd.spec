@@ -11,15 +11,15 @@ Source1:	%{name}.inetd
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-fortune_path.patch
 URL:		http://melkor.dnp.fmph.uniba.sk/~garabik/efingerd.html
+BuildRequires:  libident-devel
 PreReq:		rc-inetd >= 0.8.1
 Requires:	inetdaemon
 Provides:	fingerd
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-BuildRequires:	libident-devel
 Obsoletes:	bsd-fingerd
 Obsoletes:	finger-server
 Obsoletes:	cfingerd
 Obsoletes:	ffingerd
+BuildRoot:      %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Another finger daemon for unix capable of fine-tuning your output.
