@@ -12,14 +12,14 @@ Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-fortune_path.patch
 URL:		http://melkor.dnp.fmph.uniba.sk/~garabik/efingerd.html
 BuildRequires:  libident-devel
-PreReq:		rc-inetd >= 0.8.1
 Requires:	inetdaemon
+Requires:	rc-inetd >= 0.8.1
 Provides:	fingerd
 Obsoletes:	bsd-fingerd
 Obsoletes:	finger-server
 Obsoletes:	cfingerd
 Obsoletes:	ffingerd
-BuildRoot:      %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Another finger daemon for unix capable of fine-tuning your output.
@@ -28,10 +28,10 @@ their output. This gives you complete control over what to display and
 to who, and an extreme configurability.
 
 %description -l pl
-Efingerd jest kolejnym uniksowym demonem finger, który
-poprzez swoje mo¿liwo¶ci konfiguracji pozwala na pe³n±
-kontrolê tego, komu i w jaki sposób s± prezentowane odpowiedzi
-na zapytania finger - pokazuj±c wynik zewnêtrznych programów.
+Efingerd jest kolejnym uniksowym demonem finger, który poprzez swoje
+mo¿liwo¶ci konfiguracji pozwala na pe³n± kontrolê tego, komu i w jaki
+sposób s± prezentowane odpowiedzi na zapytania finger - pokazuj±c
+wynik zewnêtrznych programów.
 
 %prep
 %setup -q
@@ -70,7 +70,7 @@ fi
 %defattr(644,root,root,755)
 %doc README CHANGES examples-{unusual,win95,standard}
 %attr(755,root,root) %{_sbindir}/*
-%attr(640,root,root) /etc/sysconfig/rc-inetd/fingerd
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/rc-inetd/fingerd
 %dir %{_sysconfdir}/efingerd
-%attr(755,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/efingerd/*
+%attr(755,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/efingerd/*
 %{_mandir}/man8/*
