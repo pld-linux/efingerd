@@ -11,14 +11,15 @@ Source1:	%{name}.inetd
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-fortune_path.patch
 URL:		http://melkor.dnp.fmph.uniba.sk/~garabik/efingerd.html
-BuildRequires:  libident-devel
+BuildRequires:	libident-devel
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	inetdaemon
 Requires:	rc-inetd >= 0.8.1
 Provides:	fingerd
 Obsoletes:	bsd-fingerd
-Obsoletes:	finger-server
 Obsoletes:	cfingerd
 Obsoletes:	ffingerd
+Obsoletes:	finger-server
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -55,15 +56,11 @@ install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/fingerd
 rm -rf $RPM_BUILD_ROOT
 
 %post
-if [ -f /var/lock/subsys/rc-inetd ]; then
-	/etc/rc.d/init.d/rc-inetd reload 1>&2
-else
-	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet server" 1>&2
-fi
+%service -q rc-inetd reload
 
 %postun
-if [ -f /var/lock/subsys/rc-inetd ]; then
-	/etc/rc.d/init.d/rc-inetd reload
+if [ "$1" = 0 ]; then
+	%service -q rc-inetd reload
 fi
 
 %files
