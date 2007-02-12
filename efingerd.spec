@@ -1,5 +1,5 @@
 Summary:	Nice finger daemon
-Summary(pl):	Sympatyczny serwer finger
+Summary(pl.UTF-8):   Sympatyczny serwer finger
 Name:		efingerd
 Version:	1.6.2
 Release:	2
@@ -28,11 +28,11 @@ efingerd is a finger daemon, which executes programs and displays
 their output. This gives you complete control over what to display and
 to who, and an extreme configurability.
 
-%description -l pl
-Efingerd jest kolejnym uniksowym demonem finger, który poprzez swoje
-mo¿liwo¶ci konfiguracji pozwala na pe³n± kontrolê tego, komu i w jaki
-sposób s± prezentowane odpowiedzi na zapytania finger - pokazuj±c
-wynik zewnêtrznych programów.
+%description -l pl.UTF-8
+Efingerd jest kolejnym uniksowym demonem finger, ktÃ³ry poprzez swoje
+moÅ¼liwoÅ›ci konfiguracji pozwala na peÅ‚nÄ… kontrolÄ™ tego, komu i w jaki
+sposÃ³b sÄ… prezentowane odpowiedzi na zapytania finger - pokazujÄ…c
+wynik zewnÄ™trznych programÃ³w.
 
 %prep
 %setup -q
