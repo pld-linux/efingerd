@@ -1,5 +1,5 @@
 Summary:	Nice finger daemon
-Summary(pl.UTF-8):   Sympatyczny serwer finger
+Summary(pl.UTF-8):	Sympatyczny serwer finger
 Name:		efingerd
 Version:	1.6.2
 Release:	2
