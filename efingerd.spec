@@ -23,7 +23,7 @@ Obsoletes:	finger-server
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Another finger daemon for unix capable of fine-tuning your output.
+Another finger daemon for Unix capable of fine-tuning your output.
 efingerd is a finger daemon, which executes programs and displays
 their output. This gives you complete control over what to display and
 to who, and an extreme configurability.
