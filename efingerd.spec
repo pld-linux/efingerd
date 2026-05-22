@@ -1,12 +1,12 @@
 Summary:	Nice finger daemon
 Summary(pl.UTF-8):	Sympatyczny serwer finger
 Name:		efingerd
-Version:	1.6.2
-Release:	2
+Version:	1.6.7
+Release:	1
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://melkor.dnp.fmph.uniba.sk/~garabik/efingerd/%{name}_%{version}.tar.gz
-# Source0-md5:	9ed962d02c7716c747fd29b4fabbd06b
+# Source0-md5:	0257429419591607508fac1a18dfd6cd
 Source1:	%{name}.inetd
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-fortune_path.patch
@@ -41,7 +41,9 @@ wynik zewnętrznych programów.
 
 %build
 %{__make} \
-	CFLAGS="%{rpmcflags}"
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags} %{rpmcppflags}" \
+	LDFLAGS="%{rpmldflags} -lident"
 
 %install
 rm -rf $RPM_BUILD_ROOT
