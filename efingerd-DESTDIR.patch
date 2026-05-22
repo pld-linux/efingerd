@@ -17,7 +17,7 @@ diff -ur efingerd-1.6/Makefile efingerd-1.6.new/Makefile
  
  #uncomment the following line if you do have libident.so
 -#LDFLAGS = -lident
-+LDFLAGS = -lident
++LIBS = -lident
  
  
  all: efingerd
@@ -27,7 +27,7 @@ diff -ur efingerd-1.6/Makefile efingerd-1.6.new/Makefile
  #modify path to libident.a if necessary
 -	$(CC) $(CFLAGS) $(LDFLAGS) efingerd.o child.o /usr/lib/libident.a -o efingerd
 -	strip efingerd
-+	$(CC) $(CFLAGS) $(LDFLAGS) efingerd.o child.o -o efingerd
++	$(CC) $(CFLAGS) $(LDFLAGS) efingerd.o child.o -o efingerd $(LIBS)
  
  efingerd.o: efingerd.c
  	$(CC) $(CFLAGS) -c efingerd.c
@@ -44,5 +44,3 @@ diff -ur efingerd-1.6/Makefile efingerd-1.6.new/Makefile
 -	gzip -9 efingerd.8 -c >$(MANDIR)/efingerd.8.gz
 +	mkdir -p $(MANDIR)
 +	cp efingerd.8 $(MANDIR)/efingerd.8
-Only in efingerd-1.6.new/: Makefile.orig
-Only in efingerd-1.6.new/: Makefile.rej
